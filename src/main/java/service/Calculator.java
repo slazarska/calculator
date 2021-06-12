@@ -3,9 +3,11 @@ package service;
 public class Calculator {
 
     private final Reader reader;
+    private final Writer writer;
 
-    public Calculator(Reader reader) {
+    public Calculator(Reader reader, Writer writer) {
         this.reader = reader;
+        this.writer = writer;
     }
 
     public String start() {

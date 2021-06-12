@@ -1,4 +1,6 @@
 package service;
 
-public interface Writer {
+public interface Writer<T> {
+
+    T handleString(String output);
 }
