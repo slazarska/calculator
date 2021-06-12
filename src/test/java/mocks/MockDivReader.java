@@ -3,7 +3,7 @@ package mocks;
 import service.Operation;
 import service.Reader;
 
-public class MockMultReader implements Reader {
+public class MockDivReader implements Reader {
 
     @Override
     public int readFirstArg() {
@@ -17,6 +17,6 @@ public class MockMultReader implements Reader {
 
     @Override
     public Operation readMathOperation() {
-        return Operation.MULT;
+        return Operation.DIV;
     }
 }
