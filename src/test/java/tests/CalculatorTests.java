@@ -11,10 +11,10 @@ public class CalculatorTests {
 
     //    @ParameterizedTest
 //    @EnumSource(Operation.class)
-    @Test
-    void calculatorTest() {
-        calculator = new Calculator((new MockMultReader()));
-        String result = calculator.start();
-        Assertions.assertEquals("3 * 5 = 15", result);
-    }
+//    @Test
+//    void calculatorTest() {
+//        calculator = new Calculator((new MockMultReader()));
+//        String result = calculator.start();
+//        Assertions.assertEquals("3 * 5 = 15", result);
+//    }
 }
