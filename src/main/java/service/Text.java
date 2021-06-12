@@ -4,7 +4,7 @@ public enum Text {
 
     INITIALISATION("Please, provide arguments"),
     ENTER_OPERATOR("Please, enter operator (+, *, -, /, %):"),
-    RESULT_OUTPUT("Result: %s");
+    RESULT_OUTPUT("Result: ");
 
     private final String text;
 

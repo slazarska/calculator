@@ -11,14 +11,15 @@ public class Calculator {
     }
 
     public String start() {
-        System.out.println("Please provide first argument");
-        System.out.print("Введите два числа: ");
+        writer.handleString(Text.INITIALISATION.getText());
         int first = reader.readFirstArg();
         int second = reader.readSecondArg();
-        System.out.print("Введите оператор (+, *, - , /): ");
+        writer.handleString(Text.ENTER_OPERATOR.getText());
         Operation po = reader.readMathOperation();
-        int sum = po.getOperation().invoke(first, second);
-        System.out.print("\nРезультат:\n");
-        return first + " " + po.getSymbol() + " " + second + " = " + sum;
+        int result = po.getOperation().invoke(first, second);
+
+        String output = first + " " + po.getSymbol() + " " + second + " = " + result;
+        writer.handleString(String.format(Text.RESULT_OUTPUT.getText(), output));
+        return output;
     }
 }
