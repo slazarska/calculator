@@ -1,5 +1,6 @@
 package service;
 
+import exception.IncorrectOperatorException;
 import service.impl.*;
 
 public enum Operation {
@@ -8,7 +9,8 @@ public enum Operation {
     MULT('*', new MultOperationHandler()),
     SUB('-', new SubOperationHandler()),
     DIV('/', new DivisionOperationHandler()),
-    MODDIV('%', new ModularDivOperationHandler());
+    MODDIV('%', new ModularDivOperationHandler()),
+    POW ('^', new PowOperationHandler());
 
     private final char symbol;
     private final OperationHandler operation;
@@ -31,6 +33,6 @@ public enum Operation {
             if (operation.getSymbol() == symbol)
                 return operation;
         }
-        throw new IllegalArgumentException("Cant find operation by given argument: " + symbol);
+        throw new IncorrectOperatorException("Can not find operation by given argument: " + symbol);
     }
 }

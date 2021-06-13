@@ -48,19 +48,19 @@ public class CalculatorTests {
         Assertions.assertEquals("10 / 5 = 2", result);
     }
 
-//    @Test
-//    void calculatorZeroDivTest() {
-//        mockReader = new MockZeroDivReader();
-//        mockWriter = new MockWriter();
-//        calculator = new Calculator(mockReader, mockWriter);
-//        Exception caughtException = null;
-//        try {
-//            calculator.start();
-//        }catch (Exception e){
-//            caughtException = e;
-//        }
-//        Assertions.assertEquals("ZeroDivisionError", caughtException.getMessage());
-//    }
+    @Test
+    void calculatorZeroDivTest() {
+        mockReader = new MockDivByZeroReader();
+        mockWriter = new MockWriter();
+        calculator = new Calculator(mockReader, mockWriter);
+        Exception caughtException = null;
+        try {
+            calculator.start();
+        } catch (Exception e) {
+            caughtException = e;
+        }
+        Assertions.assertEquals("Error! Dividing by zero is not allowed.", caughtException.getMessage());
+    }
 
     @Test
     void calculatorModuleDivTest() {
@@ -69,5 +69,28 @@ public class CalculatorTests {
         calculator = new Calculator(mockReader, mockWriter);
         String result = calculator.start();
         Assertions.assertEquals("10 % 3 = 1", result);
+    }
+
+    @Test
+    void moduleDivByZeroTest() {
+        mockReader = new MockModuleDivByZeroReader();
+        mockWriter = new MockWriter();
+        calculator = new Calculator(mockReader, mockWriter);
+        Exception caughtException = null;
+        try {
+            calculator.start();
+        } catch (Exception e) {
+            caughtException = e;
+        }
+        Assertions.assertEquals("Error! Dividing by zero is not allowed.", caughtException.getMessage());
+    }
+
+    @Test
+    void calculatorPowTest() {
+        mockReader = new MockPowReader();
+        mockWriter = new MockWriter();
+        calculator = new Calculator(mockReader, mockWriter);
+        String result = calculator.start();
+        Assertions.assertEquals("2 ^ 7 = 128", result);
     }
 }
