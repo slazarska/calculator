@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import service.Calculator;
 import service.Reader;
-import org.assertj.core.api.SoftAssertions;
-import service.Text;
 
 public class CalculatorTests {
 
@@ -71,23 +69,5 @@ public class CalculatorTests {
         calculator = new Calculator(mockReader, mockWriter);
         String result = calculator.start();
         Assertions.assertEquals("10 % 3 = 1", result);
-    }
-
-    @Test
-    void checkAllMessages() {
-        mockReader = new MockMultReader();
-        mockWriter = new MockWriter();
-        calculator = new Calculator(mockReader, mockWriter);
-        String result = calculator.start();
-
-        SoftAssertions softAssertions = new SoftAssertions();
-
-        softAssertions.assertThat(mockWriter.handleString(Text.INITIALISATION.getText()))
-                .isEqualTo("Please, provide 2 arguments, natural numbers only");
-        softAssertions.assertThat(mockWriter.handleString(Text.ENTER_OPERATOR.getText()))
-                .isEqualTo("\"Please, enter operator (+, *, -, /, %):\"");
-        softAssertions.assertThat(String.format(Text.RESULT_OUTPUT.getText(), result))
-                .isEqualTo("Result: ");
-        softAssertions.assertAll();
     }
 }
