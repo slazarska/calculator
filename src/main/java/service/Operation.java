@@ -1,5 +1,6 @@
 package service;
 
+import exception.IncorrectOperatorException;
 import service.impl.*;
 
 public enum Operation {
@@ -32,6 +33,6 @@ public enum Operation {
             if (operation.getSymbol() == symbol)
                 return operation;
         }
-        throw new IllegalArgumentException("Cant find operation by given argument: " + symbol);
+        throw new IncorrectOperatorException("Can not find operation by given argument: " + symbol);
     }
 }

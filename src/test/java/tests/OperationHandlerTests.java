@@ -38,4 +38,10 @@ public class OperationHandlerTests {
         handler = new ModularDivOperationHandler();
         Assertions.assertEquals(1, handler.invoke(10, 3));
     }
+
+    @Test
+    void powTest() {
+        handler = new PowOperationHandler();
+        Assertions.assertEquals(256, handler.invoke(4, 4));
+    }
 }

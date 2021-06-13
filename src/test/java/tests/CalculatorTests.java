@@ -49,12 +49,40 @@ public class CalculatorTests {
     }
 
     @Test
+    void calculatorZeroDivTest() {
+        mockReader = new MockDivByZeroReader();
+        mockWriter = new MockWriter();
+        calculator = new Calculator(mockReader, mockWriter);
+        Exception caughtException = null;
+        try {
+            calculator.start();
+        } catch (Exception e) {
+            caughtException = e;
+        }
+        Assertions.assertEquals("Error! Dividing by zero is not allowed.", caughtException.getMessage());
+    }
+
+    @Test
     void calculatorModuleDivTest() {
         mockReader = new MockModuleDivReader();
         mockWriter = new MockWriter();
         calculator = new Calculator(mockReader, mockWriter);
         String result = calculator.start();
         Assertions.assertEquals("10 % 3 = 1", result);
+    }
+
+    @Test
+    void moduleDivByZeroTest() {
+        mockReader = new MockModuleDivByZeroReader();
+        mockWriter = new MockWriter();
+        calculator = new Calculator(mockReader, mockWriter);
+        Exception caughtException = null;
+        try {
+            calculator.start();
+        } catch (Exception e) {
+            caughtException = e;
+        }
+        Assertions.assertEquals("Error! Dividing by zero is not allowed.", caughtException.getMessage());
     }
 
     @Test

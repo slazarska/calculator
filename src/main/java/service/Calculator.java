@@ -13,14 +13,16 @@ public class Calculator {
     public String start() {
         writer.handleString(Text.ENTER_FIRST_ARG.getText());
         int first = reader.readFirstArg();
-        writer.handleString(Text.ENTER_SECOND_ARG.getText());
-        int second = reader.readSecondArg();
+
         writer.handleString(Text.ENTER_OPERATOR.getText());
         Operation po = reader.readMathOperation();
-        int result = po.getOperation().invoke(first, second);
 
-        String output = first + " " + po.getSymbol() + " " + second + " = " + result;
-        writer.handleString(String.format(Text.RESULT_OUTPUT.getText(), output));
+        writer.handleString(Text.ENTER_SECOND_ARG.getText());
+        int second = reader.readSecondArg();
+
+        int result = po.getOperation().invoke(first, second);
+        writer.handleString(String.format(Text.RESULT_OUTPUT.getText()));
+        String output = "It's " + result;
         return output;
     }
 }
