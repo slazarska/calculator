@@ -12,20 +12,19 @@ public class OperationHandlerTests {
     @Test
     void sumTest() {
         handler = new SumOperationHandler();
-        int sum = handler.invoke(3, 5);
-        Assertions.assertEquals(8, sum);
-    }
-
-    @Test
-    void multTest() {
-        handler = new MultOperationHandler();
-        Assertions.assertEquals(15, handler.invoke(3, 5));
+        Assertions.assertEquals(8, handler.invoke(3, 5));
     }
 
     @Test
     void subTest() {
         handler = new SubOperationHandler();
         Assertions.assertEquals(4, handler.invoke(10, 6));
+    }
+
+    @Test
+    void multTest() {
+        handler = new MultOperationHandler();
+        Assertions.assertEquals(5, handler.invoke(1, 5));
     }
 
     @Test

@@ -2,7 +2,7 @@ package service;
 
 public enum Text {
 
-    INITIALISATION("Please, provide arguments"),
+    INITIALISATION("Please, provide 2 arguments, natural numbers only"),
     ENTER_OPERATOR("Please, enter operator (+, *, -, /, %):"),
     RESULT_OUTPUT("Result: ");
 

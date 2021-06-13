@@ -7,12 +7,12 @@ public class MockSubReader implements Reader {
 
     @Override
     public int readFirstArg() {
-        return 3;
+        return 12;
     }
 
     @Override
     public int readSecondArg() {
-        return 5;
+        return 8;
     }
 
     @Override

@@ -7,12 +7,12 @@ public class MockModuleDivReader implements Reader {
 
     @Override
     public int readFirstArg() {
-        return 3;
+        return 10;
     }
 
     @Override
     public int readSecondArg() {
-        return 5;
+        return 3;
     }
 
     @Override
