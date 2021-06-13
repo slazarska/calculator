@@ -11,8 +11,9 @@ public class Calculator {
     }
 
     public String start() {
-        writer.handleString(Text.INITIALISATION.getText());
+        writer.handleString(Text.ENTER_FIRST_ARG.getText());
         int first = reader.readFirstArg();
+        writer.handleString(Text.ENTER_SECOND_ARG.getText());
         int second = reader.readSecondArg();
         writer.handleString(Text.ENTER_OPERATOR.getText());
         Operation po = reader.readMathOperation();
