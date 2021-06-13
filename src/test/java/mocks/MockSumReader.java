@@ -3,20 +3,20 @@ package mocks;
 import service.Operation;
 import service.Reader;
 
-public class MockDivReader implements Reader {
+public class MockSumReader implements Reader {
 
     @Override
     public int readFirstArg() {
-        return 10;
+        return 1;
     }
 
     @Override
     public int readSecondArg() {
-        return 2;
+        return 6;
     }
 
     @Override
     public Operation readMathOperation() {
-        return Operation.DIV;
+        return Operation.SUM;
     }
 }
