@@ -8,7 +8,8 @@ public enum Operation {
     MULT('*', new MultOperationHandler()),
     SUB('-', new SubOperationHandler()),
     DIV('/', new DivisionOperationHandler()),
-    MODDIV('%', new ModularDivOperationHandler());
+    MODDIV('%', new ModularDivOperationHandler()),
+    POW ('^', new PowOperationHandler());
 
     private final char symbol;
     private final OperationHandler operation;
