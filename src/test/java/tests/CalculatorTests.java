@@ -1,10 +1,13 @@
 package tests;
 
+import exception.DivideByZeroException;
 import mocks.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import service.Calculator;
 import service.Reader;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTests {
 
@@ -53,13 +56,10 @@ public class CalculatorTests {
         mockReader = new MockDivByZeroReader();
         mockWriter = new MockWriter();
         calculator = new Calculator(mockReader, mockWriter);
-        Exception caughtException = null;
-        try {
+        Exception exception = assertThrows(DivideByZeroException.class, () -> {
             calculator.start();
-        } catch (Exception e) {
-            caughtException = e;
-        }
-        Assertions.assertEquals("Error! Dividing by zero is not allowed.", caughtException.getMessage());
+        });
+        Assertions.assertEquals("Error! Dividing by zero is not allowed.", exception.getMessage());
     }
 
     @Test
@@ -76,13 +76,10 @@ public class CalculatorTests {
         mockReader = new MockModuleDivByZeroReader();
         mockWriter = new MockWriter();
         calculator = new Calculator(mockReader, mockWriter);
-        Exception caughtException = null;
-        try {
+        Exception exception = assertThrows(DivideByZeroException.class, () -> {
             calculator.start();
-        } catch (Exception e) {
-            caughtException = e;
-        }
-        Assertions.assertEquals("Error! Dividing by zero is not allowed.", caughtException.getMessage());
+        });
+        Assertions.assertEquals("Error! Dividing by zero is not allowed.", exception.getMessage());
     }
 
     @Test
